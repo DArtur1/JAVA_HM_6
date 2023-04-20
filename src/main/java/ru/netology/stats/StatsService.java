@@ -11,11 +11,8 @@ public class StatsService {
     }
 
     public int averageMonthlySales(int[] monthSales) {
+        int salesSum = allMonthSales(monthSales); // Обращение к методу все продажи
         int monthlySales = monthSales.length;
-        int salesSum = 0; //
-        for (int i = 0; i < monthSales.length; i++) {
-            salesSum = salesSum + monthSales[i];
-        }
         int averageSales = salesSum / monthlySales;
         return averageSales;
     }
@@ -41,13 +38,8 @@ public class StatsService {
     }
 
     public int getMonthsBelowAverage(int[] monthSales) {
+        int averageSales = averageMonthlySales(monthSales); // Обращение к методу средняя продажа в месяц
 
-        int monthlySales = monthSales.length;
-        int salesSum = 0;
-        for (int i = 0; i < monthSales.length; i++) {
-            salesSum = salesSum + monthSales[i];
-        }
-        int averageSales = salesSum / monthlySales;
         int monthBelow = 0;
         for (int i = 0; i < monthSales.length; i++) {
             if (averageSales > monthSales[i]) {
@@ -60,12 +52,7 @@ public class StatsService {
 
     public int getMonthsOverAverage(int[] monthSales) {
 
-        int monthlySales = monthSales.length;
-        int salesSum = 0;
-        for (int i = 0; i < monthSales.length; i++) {
-            salesSum = salesSum + monthSales[i];
-        }
-        int averageSales = salesSum / monthlySales;
+        int averageSales = averageMonthlySales(monthSales); // Обращение к методу средняя продажа в месяц
         int monthOver = 0;
         for (int i2 = 0; i2 < monthSales.length; i2++) {
             if (averageSales < monthSales[i2]) {
